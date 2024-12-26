@@ -1,0 +1,60 @@
+<!--SUSHMITHA KONDURU G01456225-->
+<!--RAMYASRI BHATTARAM G01443966-->
+<!--CHANDANA KONDA G01449289-->
+<!--VAISHNAV SAI VIVEK VARMA YARAKARAJU G01464960-->
+<!--This code renders the welcome page that greets the students and provides the buttons for taking the survey or viewing the list of all surveys-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Center the h1 */
+        h1 {
+            text-align: center;
+            color: green;
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+
+        /* Style the body */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        /* Style the buttons */
+        button {
+            background-color: green;
+            color: gold;
+            font-size: 1.2em;
+            padding: 15px 30px;
+            margin: 10px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.3s;
+        }
+
+        /* Add hover effect for buttons */
+        button:hover {
+            background-color: darkgreen;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome Prospective Students</h1>
+    <button routerLink="/survey-page">Student Survey</button>
+    <button routerLink="/get-all-students">List all Survey</button>
+</body>
+</html>

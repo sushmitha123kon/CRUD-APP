@@ -1,0 +1,24 @@
+.table {
+    margin: 10%;
+    width: 60%;
+    border-collapse: collapse;
+}
+
+.table th {
+    background-color: green;
+    color: gold;
+    text-align: left;
+    padding: 10px;
+}
+
+.table td {
+    background-color: white;
+    color: black;
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.table tbody tr:hover {
+    background-color: #f1f1f1; /* Optional: Highlight row on hover */
+}

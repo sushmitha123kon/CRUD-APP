@@ -1,0 +1,192 @@
+<!--SUSHMITHA KONDURU G01456225-->
+<!--RAMYASRI BHATTARAM G01443966-->
+<!--CHANDANA KONDA G01449289-->
+<!--VAISHNAV SAI VIVEK VARMA YARAKARAJU G01464960-->
+<!--This code renders the update survey page that the students can fill out to modify their entries-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+        <style>
+            .required::after {
+                content: " *";
+                color: red;
+            }
+    
+            .navbar-text {
+                border: 5px solid;
+                border-radius: 5px;
+                border-color: #006633;
+                color: #FFCC33;
+                box-shadow: 3px;
+            }
+    
+            div.mx-auto.text-center {
+                box-shadow: 0px 0px 5px #07100c; /* Adding box shadow */
+            }
+    
+            h2 {
+                color: #006633;
+                background-color: #FFCC33;
+            }
+    
+            .navbar {
+                background-color: whitesmoke;
+            }
+    
+            .navbar-brand img {
+                max-width: 100%;
+                height: auto;
+            }
+    
+            .navbar-text {
+                font-size: 1.5rem;
+                font-weight: bold;
+            }
+        </style>
+
+</head>
+
+<body>
+    <!--Navbar section-->
+    <nav class="navbar fixed-top bg-body-primary" style="background-color: whitesmoke;">
+        <div class="container-fluid ">
+            <a class="navbar-brand" href="#">
+                <img src="data:image/png;base64,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"
+                    alt="Logo" width="70" height="70" class="d-inline-block align-text-center">
+            </a>
+            <!--Navbar text-->
+            <div class="mx-auto text-center">
+                <div class="navbar-text fs-4 fw-bold  ">UPDATE FORM</div>
+            </div>
+        </div>
+    </nav>
+    <!--Form-container-->
+    <div class="container-fluid" style="width: 60%;background-color: lightgrey;">
+        <form [formGroup]="updateStudentForm" id="surveyForm" autocomplete="on" style="margin-top: 20%;">
+            <div class="mb-3">
+                <label for="exampleInputusername" class="form-label">Full Name <span class="required"></span></label>
+                <input type="text" class="form-control" id="exampleInputusername" name="name" placeholder="Enter full name" required autofocus autocomplete="name" formControlName="name">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputstreet" class="form-label">Street Address <span class="required"></span></label>
+                <input type="text" class="form-control" id="exampleInputstreet" name="street-address" placeholder="123 street name" autocomplete="street-address" formControlName="streetAddress">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputcity" class="form-label">City <span class="required"></span></label>
+                <input type="text" class="form-control" id="exampleInputcity" name="address-level2" autocomplete="address-level2" formControlName="city">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputstate" class="form-label">State <span class="required"></span></label>
+                <input type="text" class="form-control" id="exampleInputstate" name="address-level1" autocomplete="address-level1" formControlName="state">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputzip" class="form-label">Zip code <span class="required"></span></label>
+                <input type="number" class="form-control" id="exampleInputzip" name="postal-code" autocomplete="postal-code" formControlName="zipcode">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputnum" class="form-label">Telephone Number <span class="required"></span></label>
+                <input type="number" class="form-control" id="exampleInputnum" name="tel" required autocomplete="tel" formControlName="phNumber">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail" class="form-label">Email address <span class="required"></span></label>
+                <input type="email" class="form-control" id="exampleInputEmail" name="email" required placeholder="xyz@gmail.com" autocomplete="email" formControlName="mailAddress">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputurl" class="form-label">URL</label>
+                <input type="text" class="form-control" id="exampleInputurl" aria-describedby="emailHelp" required placeholder="https::/www.linkedin.com/in/username/3t68733" formControlName="url">
+            </div>
+            <div class="mb-3">
+                <label for="dateInput" class="form-label">Date</label>
+                <input type="date" class="form-control" id="dateInput" placeholder="dd/mm/yyy">
+            </div>
+            <p>What did you like the most about the campus?</p>
+<div formArrayName="campusPreferences">
+  <div *ngFor="let preference of likesDataList; let i = index">
+    <input
+      type="checkbox"
+      class="form-check-input"
+      [id]="'preference-' + i"
+      [formControlName]="i" />
+    <label [for]="'preference-' + i">{{ preference.label }}</label>
+  </div>
+</div>
+        <!-- Interest Source -->
+        <p>How did you become interested in the university? <span class="required"></span></p>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" formControlName="interestSource" value="Friends" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">Friends</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" formControlName="interestSource" value="Television" id="flexRadioDefault2">
+            <label class="form-check-label" for="flexRadioDefault2">Television</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" formControlName="interestSource" value="Internet" id="flexRadioDefault3">
+            <label class="form-check-label" for="flexRadioDefault3">Internet</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" formControlName="interestSource" value="Other" id="flexRadioDefault4">
+            <label class="form-check-label" for="flexRadioDefault4">Other</label>
+        </div>
+
+        <!-- Graduation Date -->
+        <div class="mb-3">
+            <label for="monthSelect" class="form-label">Select Graduation Date <span class="required"></span></label>
+            <div class="d-flex">
+                <input class="form-control" list="datalistOptions" id="monthSelect" formControlName="graduationMonth" placeholder="Select Month">
+                <datalist id="datalistOptions">
+                    <option value="January"></option>
+                    <option value="February"></option>
+                    <option value="March"></option>
+                    <option value="April"></option>
+                    <option value="May"></option>
+                    <option value="June"></option>
+                    <option value="July"></option>
+                    <option value="August"></option>
+                    <option value="September"></option>
+                    <option value="October"></option>
+                    <option value="November"></option>
+                    <option value="December"></option>
+                </datalist>
+                <input type="text" class="form-control" id="yearInput" formControlName="graduationYear" placeholder="Enter Year" aria-label="Year Input">
+            </div>
+        </div>
+
+        <!-- Likelihood of Recommending -->
+        <div class="mb-3">
+            <label for="recommendSelect" class="form-label">Likelihood of Recommending this School <span class="required"></span></label>
+            <select class="form-select" id="recommendSelect" formControlName="recommendationLikelihood" aria-label="Likelihood of Recommendation">
+                <option selected>Select an option</option>
+                <option value="Very Likely">Very Likely</option>
+                <option value="Likely">Likely</option>
+                <option value="Unlikely">Unlikely</option>
+            </select>
+        </div>
+
+        <!-- Additional Comments -->
+        <div class="mb-3">
+            <label for="textBox" class="form-label">Additional Comments</label>
+            <textarea class="form-control" id="textBox" placeholder="Enter something here" style="height:150px;width:100%" formControlName="additionalComments"></textarea>
+        </div>
+          <div class="mb-3">
+            <!-- Submit Button -->
+            <div class="d-flex justify-content-center">
+                <p class="btn btn-success" style="margin-bottom: 10px;margin-top: 10px;" (click)="updateStudent()" >Update</p>
+              </div>
+          </div>
+          
+        </form>
+    </div>
+</body>
+
+</html>
